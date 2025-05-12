@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Represents a user in the system (Buyer or Seller)
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email     String  @unique
+  firstname String? // Optional first name
+  lastname  String? // Optional last name
+  hash      String  // Store hashed password here
+  role      Role    @default(BUYER) // User's role (Buyer or Seller) - assign on creation
+
+  // Relations:
+  // Properties listed by this user (if they are a Seller)
+  properties      Property[]
+
+  // Appointments booked by this user (if they are a Buyer)
+  bookedAppointments Appointment[] @relation("BuyerAppointments")
+
+  // Appointments associated with properties listed by this user (if they are a Seller)
+  sellingAppointments Appointment[] @relation("SellerAppointments")
+
+  @@map("users") // Database table name
+}
+
+// Represents a real estate property listing
+model Property {
+  id          Int            @id @default(autoincrement())
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  title       String
+  description String
+  price       Int        // Use Decimal for currency
+  location    String
+  beds        Int
+  baths       Int
+  area        Int
+  // images      String[]       // Store image URLs or paths as an optional array of strings
+  status      PropertyStatus @default(ACTIVE) // Status of the listing
+
+  // Relation: The user who created and owns this listing (the Seller)
+  seller      User           @relation(fields: [sellerId], references: [id])
+  sellerId    Int          
+
+  // Relation: Appointments scheduled for this property
+  appointments Appointment[]
+
+  @@map("properties") // Database table name
+}
+
+// Represents a property viewing appointment booking
+model Appointment {
+  id        Int               @id @default(autoincrement())
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  startTime DateTime          // When the appointment starts
+  Date      DateTime          //appointment date
+
+  // Relation: The property being viewed
+  property  Property          @relation(fields: [propertyId], references: [id])
+  propertyId Int              // Foreign key to the property
+
+  // Relation: The user who booked the appointment (the Buyer)
+  buyer     User              @relation("BuyerAppointments", fields: [buyerId], references: [id])
+  buyerId   Int               // Foreign key to the buyer user
+
+  // Relation: The user who is the seller of the property (Redundant but simplifies queries)
+  // This links directly to the seller user, mirroring property.sellerId but on the appointment model
+  seller    User              @relation("SellerAppointments", fields: [sellerId], references: [id])
+  sellerId  Int                // Foreign key to the seller user (denormalized for convenience)
+
+  status    AppointmentStatus @default(PENDING) // Status of the appointment booking
+
+  @@map("appointments") // Database table name
+}
+
+// Defines the roles a user can have
+enum Role {
+  BUYER // User looking to purchase properties
+  SELLER // User listing properties for sale
+  // You could add ADMIN here if needed later
+}
+
+// Defines the possible statuses for a property listing
+enum PropertyStatus {
+  DRAFT // Listing is being created but not public yet
+  ACTIVE // Listing is public and available
+  SOLD // Property has been sold
+  RENTED // Property has been rented
+
+}
+
+// Defines the possible statuses for a property appointment booking
+enum AppointmentStatus {
+  PENDING   // Appointment is requested but not confirmed
+  CONFIRMED // Appointment is confirmed by the seller/agent
+  CANCELED  // Appointment was canceled by either party
+  COMPLETED // Appointment viewing has occurred
+}
