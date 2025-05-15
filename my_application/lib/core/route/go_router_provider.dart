@@ -6,7 +6,7 @@ import 'package:my_application/features/auth/signup/presentation/ui/signup_scree
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: "/login",
+    initialLocation: "/signup",
     routes: [
       GoRoute(
         path: '/login',
