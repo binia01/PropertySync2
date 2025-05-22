@@ -7,14 +7,14 @@ import 'package:my_application/core/data/remote/token/itoken_service.dart';
 
 final tokenServiceProvider = Provider.family<ITokenService, Dio>((ref, dio) {
   final secureStorage = ref.watch(secureStorageProvider);
-  return TokenService(dio, secureStorage);
+  return TokenService(secureStorage);
 });
 
 class TokenService implements ITokenService {
-  final Dio _dio;
+  // final Dio _dio;
   final IsecureStorage _secureStorage;
 
-  TokenService(this._dio, this._secureStorage);
+  TokenService(this._secureStorage);
 
   @override
   Future<void> clearToken() {
