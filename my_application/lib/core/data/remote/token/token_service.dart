@@ -18,50 +18,14 @@ class TokenService implements ITokenService {
 
   @override
   Future<void> clearToken() {
-    return Future.wait([
-      _secureStorage.delete(accessTokenKey),
-      _secureStorage.delete(refreshTokenKey),
-    ]);
+    return Future.wait([_secureStorage.delete(accessTokenKey)]);
   }
 
   @override
   Future<String?> getAccessToken() => _secureStorage.read('access_token');
 
   @override
-  Future<String?> getRefreshToken() => _secureStorage.read('refresh_token');
-
-  @override
-  Future<void> saveToken(String accessToken, String refreshToken) {
-    return Future.wait([
-      _secureStorage.write(accessTokenKey, accessToken),
-      _secureStorage.write(refreshTokenKey, refreshToken),
-    ]);
-  }
-
-  @override
-  Future<String> refeshToken(String? refreshToken) async {
-    throw UnimplementedError('Token refresh is not supported by backend');
-    // final response = await _dio.post<Map<String, dynamic>>(
-    //   '/auth/signup',
-    //   data: {'refresh_token': refreshToken},
-    // );
-    // if (response.statusCode == 200) {
-    //   final data = response.data;
-    //   final accessToken = data?['access_token'] as String?;
-    //   final newRefreshToken = data?['refresh_token'] as String?;
-    //
-    //   if (accessToken != null && newRefreshToken != null) {
-    //     await saveToken(accessToken, newRefreshToken);
-    //     return accessToken;
-    //   }
-    // } else {
-    //   throw DioException(
-    //     requestOptions: response.requestOptions,
-    //     response: response,
-    //   );
-    // }
-    // throw Exception(
-    //   'Failed to refresh token: invalid response or missing tokens',
-    // );
+  Future<void> saveToken(String accessToken) {
+    return Future.wait([_secureStorage.write(accessTokenKey, accessToken)]);
   }
 }
