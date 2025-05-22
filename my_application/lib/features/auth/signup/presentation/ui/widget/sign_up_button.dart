@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_application/features/auth/signup/presentation/controller/sign_up_controller.dart';
 
 class SignUpButton extends ConsumerWidget {

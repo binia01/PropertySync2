@@ -1,4 +1,4 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_application/features/auth/signup/application/isign_up_service.dart';
 import 'package:my_application/features/auth/signup/data/dto/request/sign_up_request.dart';
 import 'package:my_application/features/auth/signup/data/dto/response/sign_up_response.dart';

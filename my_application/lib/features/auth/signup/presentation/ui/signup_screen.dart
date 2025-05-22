@@ -12,6 +12,9 @@ class SignupScreen extends ConsumerStatefulWidget {
 class _SignUpScreenState extends ConsumerState<SignupScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(), body: const SignUpFormList());
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(child: const SignUpFormList()),
+    );
   }
 }
