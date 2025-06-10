@@ -50,7 +50,7 @@ class _UserScreenState extends ConsumerState<UserScreen> {
                     onPressed: () {
                       ref.read(userControllerProvider.notifier).deleteUser();
                       if (context.mounted) {
-                        context.go('/signup');
+                        context.go('/sinup');
                       }
                     },
                     style: ElevatedButton.styleFrom(
