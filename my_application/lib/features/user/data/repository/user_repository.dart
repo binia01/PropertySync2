@@ -14,7 +14,7 @@ final userRepositoryProvider = Provider<IUserRepository>((ref) {
 final class UserRepository implements IUserRepository {
   final UserApi _userApi;
 
-  UserRepository(this._userapi);
+  UserRepository(this._userApi);
   @override
   Future<UserResponse> getUser() async {
     try {
