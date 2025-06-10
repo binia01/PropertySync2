@@ -8,7 +8,7 @@ part of 'sign_up_request.dart';
 
 _$SignUpRequestImpl _$$SignUpRequestImplFromJson(Map<String, dynamic> json) =>
     _$SignUpRequestImpl(
-      name: json['name'] as String?,
+      name: json['name'] as String,
       email: json['email'] as String,
       password: json['password'] as String,
       role: json['role'] as String,

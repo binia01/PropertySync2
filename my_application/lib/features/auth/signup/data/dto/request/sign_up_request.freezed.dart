@@ -22,7 +22,7 @@ SignUpRequest _$SignUpRequestFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SignUpRequest {
   @JsonKey(name: "name")
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "email")
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: "password")
@@ -48,7 +48,7 @@ abstract class $SignUpRequestCopyWith<$Res> {
   ) = _$SignUpRequestCopyWithImpl<$Res, SignUpRequest>;
   @useResult
   $Res call({
-    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "name") String name,
     @JsonKey(name: "email") String email,
     @JsonKey(name: "password") String password,
     @JsonKey(name: "role") String role,
@@ -70,7 +70,7 @@ class _$SignUpRequestCopyWithImpl<$Res, $Val extends SignUpRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? email = null,
     Object? password = null,
     Object? role = null,
@@ -78,10 +78,10 @@ class _$SignUpRequestCopyWithImpl<$Res, $Val extends SignUpRequest>
     return _then(
       _value.copyWith(
             name:
-                freezed == name
+                null == name
                     ? _value.name
                     : name // ignore: cast_nullable_to_non_nullable
-                        as String?,
+                        as String,
             email:
                 null == email
                     ? _value.email
@@ -113,7 +113,7 @@ abstract class _$$SignUpRequestImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "name") String name,
     @JsonKey(name: "email") String email,
     @JsonKey(name: "password") String password,
     @JsonKey(name: "role") String role,
@@ -134,7 +134,7 @@ class __$$SignUpRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? email = null,
     Object? password = null,
     Object? role = null,
@@ -142,10 +142,10 @@ class __$$SignUpRequestImplCopyWithImpl<$Res>
     return _then(
       _$SignUpRequestImpl(
         name:
-            freezed == name
+            null == name
                 ? _value.name
                 : name // ignore: cast_nullable_to_non_nullable
-                    as String?,
+                    as String,
         email:
             null == email
                 ? _value.email
@@ -170,7 +170,7 @@ class __$$SignUpRequestImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SignUpRequestImpl implements _SignUpRequest {
   const _$SignUpRequestImpl({
-    @JsonKey(name: "name") this.name,
+    @JsonKey(name: "name") required this.name,
     @JsonKey(name: "email") required this.email,
     @JsonKey(name: "password") required this.password,
     @JsonKey(name: "role") required this.role,
@@ -181,7 +181,7 @@ class _$SignUpRequestImpl implements _SignUpRequest {
 
   @override
   @JsonKey(name: "name")
-  final String? name;
+  final String name;
   @override
   @JsonKey(name: "email")
   final String email;
@@ -229,7 +229,7 @@ class _$SignUpRequestImpl implements _SignUpRequest {
 
 abstract class _SignUpRequest implements SignUpRequest {
   const factory _SignUpRequest({
-    @JsonKey(name: "name") final String? name,
+    @JsonKey(name: "name") required final String name,
     @JsonKey(name: "email") required final String email,
     @JsonKey(name: "password") required final String password,
     @JsonKey(name: "role") required final String role,
@@ -240,7 +240,7 @@ abstract class _SignUpRequest implements SignUpRequest {
 
   @override
   @JsonKey(name: "name")
-  String? get name;
+  String get name;
   @override
   @JsonKey(name: "email")
   String get email;

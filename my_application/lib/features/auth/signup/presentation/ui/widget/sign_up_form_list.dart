@@ -161,7 +161,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
                     onPressed: () {
                       context.pop();
                       _clearForm();
-                      _navigateToLogin();
+                      _navigateToHome();
                     },
                     child: Text('OK'),
                   ),
@@ -185,6 +185,10 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
 
   void _navigateToLogin() {
     context.go('/login');
+  }
+
+  void _navigateToHome(){
+    context.go('/home');
   }
 
   void _onSubmit() {

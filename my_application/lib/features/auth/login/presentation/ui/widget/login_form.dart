@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
+import 'package:go_router/go_router.dart'; // Keep this import, context.pop() still uses it
 import 'package:my_application/features/auth/login/presentation/controller/login_controller.dart';
 import 'package:my_application/features/auth/login/presentation/ui/widget/login_button.dart';
 
@@ -49,7 +49,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
-                prefix: const Icon(Icons.email),
+                prefixIcon: const Icon(Icons.email),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -69,7 +69,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
-                prefix: const Icon(Icons.lock),
+                prefixIcon: const Icon(Icons.lock),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -90,9 +90,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
   void _listener() {
     ref.listen(loginControllerProvider.select((value) => value.errorMessage), (
-      _,
-      next,
-    ) {
+        _,
+        next,
+        ) {
       if (next != null) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -104,17 +104,17 @@ class _LoginFormState extends ConsumerState<LoginForm> {
       }
     });
     ref.listen(loginControllerProvider.select((value) => value.isLoginSuccess), (
-      _,
-      next,
-    ) {
+        _,
+        next,
+        ) {
       if (next != null && next) {
         showDialog(
           context: context,
           barrierDismissible: false,
           builder: (context) {
             return AlertDialog(
-              title: Text('Login Successful'),
-              content: Text(
+              title: const Text('Login Successful'),
+              content: const Text(
                 'Please check your email for verification and verify your account',
               ),
               actions: [
@@ -122,9 +122,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   onPressed: () {
                     context.pop();
                     _clearForm();
-                    // _navigateToLogin();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             );
@@ -139,8 +138,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
     _passwordController.clear();
   }
 
+  // dont use this
   // void _navigateToLogin() {
-  //   context.go('/login');
+  //   context.go('/property');
   // }
 
   void _onSubmit() {
@@ -148,7 +148,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
     if (!isValid) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Please fill all fields including selecting a role'),
         ),
       );
