@@ -23,7 +23,7 @@ class SignUpController extends AutoDisposeNotifier<SignUpState> {
       );
 
       final formData = SignUpRequest(
-        firstname: state.signUpform['firstname'],
+        firstname: state.signUpform['name'],
         email: state.signUpform['email'],
         password: state.signUpform['password'],
         role: state.signUpform['role'],
