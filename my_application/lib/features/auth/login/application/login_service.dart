@@ -30,6 +30,10 @@ final class LoginService implements IloginService, IloginModelMapper {
 
   @override
   LoginModel mapToLoginModel(LoginResponse response) {
-    return LoginModel(accessToken: response.accessToken, isLoginSuccess: true);
+    return LoginModel(
+      accessToken: response.accessToken,
+      role: response.role,
+      isLoginSuccess: true,
+    );
   }
 }

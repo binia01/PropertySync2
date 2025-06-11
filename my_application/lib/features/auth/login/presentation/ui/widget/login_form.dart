@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart'; // Keep this import, context.pop() still uses it
 import 'package:my_application/features/auth/login/presentation/controller/login_controller.dart';
+import 'package:my_application/features/auth/login/presentation/ui/widget/create_an_account.dart';
 import 'package:my_application/features/auth/login/presentation/ui/widget/login_button.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
@@ -51,23 +52,19 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 ),
                 prefixIcon: const Icon(Icons.email),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
-                } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                  return 'Please enter a valid email';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                border: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+            ],
+          ),
+          child: Form(
+            key: _formkey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "PROPERTY SYNC",
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
                 prefixIcon: const Icon(Icons.lock),
               ),
@@ -80,9 +77,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 return null;
               },
             ),
-            const SizedBox(height: 16),
-            LoginButton(onPressed: _onSubmit),
-          ],
+          ),
         ),
       ),
     );

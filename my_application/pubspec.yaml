@@ -54,19 +54,21 @@ dependencies:
   json_annotation: ^4.8.1
   equatable: ^2.0.5
   formz: ^0.6.0
-
+`
   # Dependency injection
   get_it: ^7.6.4
   injectable: ^2.3.0
 
   go_router: ^15.1.2
   intl: ^0.20.2
+  jwt_decoder: ^2.0.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  integration_test:
+    sdk: flutter
   build_runner: ^2.4.7
   freezed: ^2.4.7
   json_serializable: ^6.7.1
@@ -95,6 +97,12 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  
+  assets:
+    - assets/images/demohouse.jpg
+    - assets/icons/editicon.png
+    - assets/icons/trashicon.png
+    - assets/icons/logout.png
 
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -104,8 +112,6 @@ flutter:
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
-
-  # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
 
   # To add custom fonts to your application, add a fonts section here,

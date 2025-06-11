@@ -111,4 +111,23 @@ class TokenService implements ITokenService {
     await _secureStorage.delete(userIdKey);
     debugPrint("TokenService: clearUserId() - UserId cleared.");
   }
+
+  @override
+  Future<void> clearRole() async {
+    _cachedRole = null;
+    await _secureStorage.delete(roleKey);
+  }
+
+  @override
+  Future<void> saveRole(String role) async {
+    _cachedRole = role;
+    await _secureStorage.write(roleKey, role);
+  }
+
+  @override
+  Future<String?> getRole() async {
+    if (_cachedRole != null) return _cachedRole;
+    _cachedRole = await _secureStorage.read(roleKey);
+    return _cachedRole;
+  }
 }

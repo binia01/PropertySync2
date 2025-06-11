@@ -23,6 +23,8 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) {
 mixin _$LoginResponse {
   @JsonKey(name: "access_token")
   String get accessToken => throw _privateConstructorUsedError;
+  @JsonKey(name: "role")
+  String get role => throw _privateConstructorUsedError;
 
   /// Serializes this LoginResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +43,10 @@ abstract class $LoginResponseCopyWith<$Res> {
     $Res Function(LoginResponse) then,
   ) = _$LoginResponseCopyWithImpl<$Res, LoginResponse>;
   @useResult
-  $Res call({@JsonKey(name: "access_token") String accessToken});
+  $Res call({
+    @JsonKey(name: "access_token") String accessToken,
+    @JsonKey(name: "role") String role,
+  });
 }
 
 /// @nodoc
@@ -58,13 +63,18 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accessToken = null}) {
+  $Res call({Object? accessToken = null, Object? role = null}) {
     return _then(
       _value.copyWith(
             accessToken:
                 null == accessToken
                     ? _value.accessToken
                     : accessToken // ignore: cast_nullable_to_non_nullable
+                        as String,
+            role:
+                null == role
+                    ? _value.role
+                    : role // ignore: cast_nullable_to_non_nullable
                         as String,
           )
           as $Val,
@@ -81,7 +91,10 @@ abstract class _$$LoginResponseImplCopyWith<$Res>
   ) = __$$LoginResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: "access_token") String accessToken});
+  $Res call({
+    @JsonKey(name: "access_token") String accessToken,
+    @JsonKey(name: "role") String role,
+  });
 }
 
 /// @nodoc
@@ -97,13 +110,18 @@ class __$$LoginResponseImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accessToken = null}) {
+  $Res call({Object? accessToken = null, Object? role = null}) {
     return _then(
       _$LoginResponseImpl(
         accessToken:
             null == accessToken
                 ? _value.accessToken
                 : accessToken // ignore: cast_nullable_to_non_nullable
+                    as String,
+        role:
+            null == role
+                ? _value.role
+                : role // ignore: cast_nullable_to_non_nullable
                     as String,
       ),
     );
@@ -115,6 +133,7 @@ class __$$LoginResponseImplCopyWithImpl<$Res>
 class _$LoginResponseImpl implements _LoginResponse {
   const _$LoginResponseImpl({
     @JsonKey(name: "access_token") required this.accessToken,
+    @JsonKey(name: "role") required this.role,
   });
 
   factory _$LoginResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -123,10 +142,13 @@ class _$LoginResponseImpl implements _LoginResponse {
   @override
   @JsonKey(name: "access_token")
   final String accessToken;
+  @override
+  @JsonKey(name: "role")
+  final String role;
 
   @override
   String toString() {
-    return 'LoginResponse(accessToken: $accessToken)';
+    return 'LoginResponse(accessToken: $accessToken, role: $role)';
   }
 
   @override
@@ -135,12 +157,13 @@ class _$LoginResponseImpl implements _LoginResponse {
         (other.runtimeType == runtimeType &&
             other is _$LoginResponseImpl &&
             (identical(other.accessToken, accessToken) ||
-                other.accessToken == accessToken));
+                other.accessToken == accessToken) &&
+            (identical(other.role, role) || other.role == role));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, accessToken);
+  int get hashCode => Object.hash(runtimeType, accessToken, role);
 
   /// Create a copy of LoginResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -159,6 +182,7 @@ class _$LoginResponseImpl implements _LoginResponse {
 abstract class _LoginResponse implements LoginResponse {
   const factory _LoginResponse({
     @JsonKey(name: "access_token") required final String accessToken,
+    @JsonKey(name: "role") required final String role,
   }) = _$LoginResponseImpl;
 
   factory _LoginResponse.fromJson(Map<String, dynamic> json) =
@@ -167,6 +191,9 @@ abstract class _LoginResponse implements LoginResponse {
   @override
   @JsonKey(name: "access_token")
   String get accessToken;
+  @override
+  @JsonKey(name: "role")
+  String get role;
 
   /// Create a copy of LoginResponse
   /// with the given fields replaced by the non-null parameter values.
