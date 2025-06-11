@@ -21,8 +21,8 @@ SignUpRequest _$SignUpRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SignUpRequest {
-  @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "firstname")
+  String get firstname => throw _privateConstructorUsedError;
   @JsonKey(name: "email")
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: "password")
@@ -48,7 +48,7 @@ abstract class $SignUpRequestCopyWith<$Res> {
   ) = _$SignUpRequestCopyWithImpl<$Res, SignUpRequest>;
   @useResult
   $Res call({
-    @JsonKey(name: "name") String name,
+    @JsonKey(name: "firstname") String firstname,
     @JsonKey(name: "email") String email,
     @JsonKey(name: "password") String password,
     @JsonKey(name: "role") String role,
@@ -70,17 +70,17 @@ class _$SignUpRequestCopyWithImpl<$Res, $Val extends SignUpRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? firstname = null,
     Object? email = null,
     Object? password = null,
     Object? role = null,
   }) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
+            firstname:
+                null == firstname
+                    ? _value.firstname
+                    : firstname // ignore: cast_nullable_to_non_nullable
                         as String,
             email:
                 null == email
@@ -113,7 +113,7 @@ abstract class _$$SignUpRequestImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: "name") String name,
+    @JsonKey(name: "firstname") String firstname,
     @JsonKey(name: "email") String email,
     @JsonKey(name: "password") String password,
     @JsonKey(name: "role") String role,
@@ -134,17 +134,17 @@ class __$$SignUpRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? firstname = null,
     Object? email = null,
     Object? password = null,
     Object? role = null,
   }) {
     return _then(
       _$SignUpRequestImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
+        firstname:
+            null == firstname
+                ? _value.firstname
+                : firstname // ignore: cast_nullable_to_non_nullable
                     as String,
         email:
             null == email
@@ -170,7 +170,7 @@ class __$$SignUpRequestImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SignUpRequestImpl implements _SignUpRequest {
   const _$SignUpRequestImpl({
-    @JsonKey(name: "name") required this.name,
+    @JsonKey(name: "firstname") required this.firstname,
     @JsonKey(name: "email") required this.email,
     @JsonKey(name: "password") required this.password,
     @JsonKey(name: "role") required this.role,
@@ -180,8 +180,8 @@ class _$SignUpRequestImpl implements _SignUpRequest {
       _$$SignUpRequestImplFromJson(json);
 
   @override
-  @JsonKey(name: "name")
-  final String name;
+  @JsonKey(name: "firstname")
+  final String firstname;
   @override
   @JsonKey(name: "email")
   final String email;
@@ -194,7 +194,7 @@ class _$SignUpRequestImpl implements _SignUpRequest {
 
   @override
   String toString() {
-    return 'SignUpRequest(name: $name, email: $email, password: $password, role: $role)';
+    return 'SignUpRequest(firstname: $firstname, email: $email, password: $password, role: $role)';
   }
 
   @override
@@ -202,7 +202,8 @@ class _$SignUpRequestImpl implements _SignUpRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignUpRequestImpl &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.firstname, firstname) ||
+                other.firstname == firstname) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
@@ -211,7 +212,8 @@ class _$SignUpRequestImpl implements _SignUpRequest {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, email, password, role);
+  int get hashCode =>
+      Object.hash(runtimeType, firstname, email, password, role);
 
   /// Create a copy of SignUpRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -229,7 +231,7 @@ class _$SignUpRequestImpl implements _SignUpRequest {
 
 abstract class _SignUpRequest implements SignUpRequest {
   const factory _SignUpRequest({
-    @JsonKey(name: "name") required final String name,
+    @JsonKey(name: "firstname") required final String firstname,
     @JsonKey(name: "email") required final String email,
     @JsonKey(name: "password") required final String password,
     @JsonKey(name: "role") required final String role,
@@ -239,8 +241,8 @@ abstract class _SignUpRequest implements SignUpRequest {
       _$SignUpRequestImpl.fromJson;
 
   @override
-  @JsonKey(name: "name")
-  String get name;
+  @JsonKey(name: "firstname")
+  String get firstname;
   @override
   @JsonKey(name: "email")
   String get email;

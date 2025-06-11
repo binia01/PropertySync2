@@ -63,6 +63,7 @@ final class UserService implements IuserService, IuserModelMapper {
       email: response.email ?? '',
       name: response.name ?? '',
       role: response.role ?? '',
+      properties: response.properties ?? [],
       bookedAppointments: response.bookedAppointments ?? [],
       sellingAppointments: response.sellingAppointments ?? [],
     );

@@ -23,14 +23,10 @@ UserRequest _$UserRequestFromJson(Map<String, dynamic> json) {
 mixin _$UserRequest {
   @JsonKey(name: "email")
   String? get email => throw _privateConstructorUsedError;
-  @JsonKey(name: "name")
-  String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "role")
-  String? get role => throw _privateConstructorUsedError;
-  @JsonKey(name: "bookedAppointments")
-  List<dynamic>? get bookedAppointments => throw _privateConstructorUsedError;
-  @JsonKey(name: "sellingAppointments")
-  List<dynamic>? get sellingAppointments => throw _privateConstructorUsedError;
+  @JsonKey(name: "firstname")
+  String? get firstname => throw _privateConstructorUsedError;
+  @JsonKey(name: "lastname")
+  String? get lastname => throw _privateConstructorUsedError;
 
   /// Serializes this UserRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,10 +47,8 @@ abstract class $UserRequestCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: "email") String? email,
-    @JsonKey(name: "name") String? name,
-    @JsonKey(name: "role") String? role,
-    @JsonKey(name: "bookedAppointments") List<dynamic>? bookedAppointments,
-    @JsonKey(name: "sellingAppointments") List<dynamic>? sellingAppointments,
+    @JsonKey(name: "firstname") String? firstname,
+    @JsonKey(name: "lastname") String? lastname,
   });
 }
 
@@ -74,10 +68,8 @@ class _$UserRequestCopyWithImpl<$Res, $Val extends UserRequest>
   @override
   $Res call({
     Object? email = freezed,
-    Object? name = freezed,
-    Object? role = freezed,
-    Object? bookedAppointments = freezed,
-    Object? sellingAppointments = freezed,
+    Object? firstname = freezed,
+    Object? lastname = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -86,26 +78,16 @@ class _$UserRequestCopyWithImpl<$Res, $Val extends UserRequest>
                     ? _value.email
                     : email // ignore: cast_nullable_to_non_nullable
                         as String?,
-            name:
-                freezed == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
+            firstname:
+                freezed == firstname
+                    ? _value.firstname
+                    : firstname // ignore: cast_nullable_to_non_nullable
                         as String?,
-            role:
-                freezed == role
-                    ? _value.role
-                    : role // ignore: cast_nullable_to_non_nullable
+            lastname:
+                freezed == lastname
+                    ? _value.lastname
+                    : lastname // ignore: cast_nullable_to_non_nullable
                         as String?,
-            bookedAppointments:
-                freezed == bookedAppointments
-                    ? _value.bookedAppointments
-                    : bookedAppointments // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
-            sellingAppointments:
-                freezed == sellingAppointments
-                    ? _value.sellingAppointments
-                    : sellingAppointments // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
           )
           as $Val,
     );
@@ -123,10 +105,8 @@ abstract class _$$UserRequestImplCopyWith<$Res>
   @useResult
   $Res call({
     @JsonKey(name: "email") String? email,
-    @JsonKey(name: "name") String? name,
-    @JsonKey(name: "role") String? role,
-    @JsonKey(name: "bookedAppointments") List<dynamic>? bookedAppointments,
-    @JsonKey(name: "sellingAppointments") List<dynamic>? sellingAppointments,
+    @JsonKey(name: "firstname") String? firstname,
+    @JsonKey(name: "lastname") String? lastname,
   });
 }
 
@@ -145,10 +125,8 @@ class __$$UserRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? email = freezed,
-    Object? name = freezed,
-    Object? role = freezed,
-    Object? bookedAppointments = freezed,
-    Object? sellingAppointments = freezed,
+    Object? firstname = freezed,
+    Object? lastname = freezed,
   }) {
     return _then(
       _$UserRequestImpl(
@@ -157,26 +135,16 @@ class __$$UserRequestImplCopyWithImpl<$Res>
                 ? _value.email
                 : email // ignore: cast_nullable_to_non_nullable
                     as String?,
-        name:
-            freezed == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
+        firstname:
+            freezed == firstname
+                ? _value.firstname
+                : firstname // ignore: cast_nullable_to_non_nullable
                     as String?,
-        role:
-            freezed == role
-                ? _value.role
-                : role // ignore: cast_nullable_to_non_nullable
+        lastname:
+            freezed == lastname
+                ? _value.lastname
+                : lastname // ignore: cast_nullable_to_non_nullable
                     as String?,
-        bookedAppointments:
-            freezed == bookedAppointments
-                ? _value._bookedAppointments
-                : bookedAppointments // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
-        sellingAppointments:
-            freezed == sellingAppointments
-                ? _value._sellingAppointments
-                : sellingAppointments // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
       ),
     );
   }
@@ -187,14 +155,9 @@ class __$$UserRequestImplCopyWithImpl<$Res>
 class _$UserRequestImpl implements _UserRequest {
   const _$UserRequestImpl({
     @JsonKey(name: "email") this.email,
-    @JsonKey(name: "name") this.name,
-    @JsonKey(name: "role") this.role,
-    @JsonKey(name: "bookedAppointments")
-    final List<dynamic>? bookedAppointments,
-    @JsonKey(name: "sellingAppointments")
-    final List<dynamic>? sellingAppointments,
-  }) : _bookedAppointments = bookedAppointments,
-       _sellingAppointments = sellingAppointments;
+    @JsonKey(name: "firstname") this.firstname,
+    @JsonKey(name: "lastname") this.lastname,
+  });
 
   factory _$UserRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserRequestImplFromJson(json);
@@ -203,38 +166,15 @@ class _$UserRequestImpl implements _UserRequest {
   @JsonKey(name: "email")
   final String? email;
   @override
-  @JsonKey(name: "name")
-  final String? name;
+  @JsonKey(name: "firstname")
+  final String? firstname;
   @override
-  @JsonKey(name: "role")
-  final String? role;
-  final List<dynamic>? _bookedAppointments;
-  @override
-  @JsonKey(name: "bookedAppointments")
-  List<dynamic>? get bookedAppointments {
-    final value = _bookedAppointments;
-    if (value == null) return null;
-    if (_bookedAppointments is EqualUnmodifiableListView)
-      return _bookedAppointments;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<dynamic>? _sellingAppointments;
-  @override
-  @JsonKey(name: "sellingAppointments")
-  List<dynamic>? get sellingAppointments {
-    final value = _sellingAppointments;
-    if (value == null) return null;
-    if (_sellingAppointments is EqualUnmodifiableListView)
-      return _sellingAppointments;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  @JsonKey(name: "lastname")
+  final String? lastname;
 
   @override
   String toString() {
-    return 'UserRequest(email: $email, name: $name, role: $role, bookedAppointments: $bookedAppointments, sellingAppointments: $sellingAppointments)';
+    return 'UserRequest(email: $email, firstname: $firstname, lastname: $lastname)';
   }
 
   @override
@@ -243,28 +183,15 @@ class _$UserRequestImpl implements _UserRequest {
         (other.runtimeType == runtimeType &&
             other is _$UserRequestImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.role, role) || other.role == role) &&
-            const DeepCollectionEquality().equals(
-              other._bookedAppointments,
-              _bookedAppointments,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._sellingAppointments,
-              _sellingAppointments,
-            ));
+            (identical(other.firstname, firstname) ||
+                other.firstname == firstname) &&
+            (identical(other.lastname, lastname) ||
+                other.lastname == lastname));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    email,
-    name,
-    role,
-    const DeepCollectionEquality().hash(_bookedAppointments),
-    const DeepCollectionEquality().hash(_sellingAppointments),
-  );
+  int get hashCode => Object.hash(runtimeType, email, firstname, lastname);
 
   /// Create a copy of UserRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -283,12 +210,8 @@ class _$UserRequestImpl implements _UserRequest {
 abstract class _UserRequest implements UserRequest {
   const factory _UserRequest({
     @JsonKey(name: "email") final String? email,
-    @JsonKey(name: "name") final String? name,
-    @JsonKey(name: "role") final String? role,
-    @JsonKey(name: "bookedAppointments")
-    final List<dynamic>? bookedAppointments,
-    @JsonKey(name: "sellingAppointments")
-    final List<dynamic>? sellingAppointments,
+    @JsonKey(name: "firstname") final String? firstname,
+    @JsonKey(name: "lastname") final String? lastname,
   }) = _$UserRequestImpl;
 
   factory _UserRequest.fromJson(Map<String, dynamic> json) =
@@ -298,17 +221,11 @@ abstract class _UserRequest implements UserRequest {
   @JsonKey(name: "email")
   String? get email;
   @override
-  @JsonKey(name: "name")
-  String? get name;
+  @JsonKey(name: "firstname")
+  String? get firstname;
   @override
-  @JsonKey(name: "role")
-  String? get role;
-  @override
-  @JsonKey(name: "bookedAppointments")
-  List<dynamic>? get bookedAppointments;
-  @override
-  @JsonKey(name: "sellingAppointments")
-  List<dynamic>? get sellingAppointments;
+  @JsonKey(name: "lastname")
+  String? get lastname;
 
   /// Create a copy of UserRequest
   /// with the given fields replaced by the non-null parameter values.

@@ -9,10 +9,8 @@ part 'user_request.g.dart';
 class UserRequest with _$UserRequest {
   const factory UserRequest({
     @JsonKey(name: "email") String? email,
-    @JsonKey(name: "name") String? name,
-    @JsonKey(name: "role") String? role,
-    @JsonKey(name: "bookedAppointments") List<dynamic>? bookedAppointments,
-    @JsonKey(name: "sellingAppointments") List<dynamic>? sellingAppointments,
+    @JsonKey(name: "firstname") String? firstname,
+    @JsonKey(name: "lastname") String? lastname,
   }) = _UserRequest;
 
   factory UserRequest.fromJson(Map<String, dynamic> json) =>

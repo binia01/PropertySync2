@@ -60,7 +60,7 @@ export class PropertyService{
         });
         return{
             message: 'Property deleted successfully', 
-            user: deletedProperty
+            property: deletedProperty
         }
     }
 

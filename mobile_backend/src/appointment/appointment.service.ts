@@ -27,7 +27,7 @@ export class AppointmentService{
         })
         return {
             message: "Appointment Created Successfully",
-            Appointment: newAppointment
+            appointment: newAppointment
         }
     }
 
@@ -52,7 +52,7 @@ export class AppointmentService{
     }
     //get appointment by id
     async getAppointmentById(id: number){
-        return this.prisma.appointment.findMany({
+        return this.prisma.appointment.findUnique({
             where:{id,}
         });
     }
@@ -67,7 +67,7 @@ export class AppointmentService{
         })
         return {
             message: 'Appointment updated successfully',
-            Appointment: updatedAppointment
+            appointment: updatedAppointment
         };
     };
 
@@ -81,7 +81,7 @@ export class AppointmentService{
         });
         return {
             message: 'Appointment status updated successfully',
-            Appointment: UpdatedAppointmentStatus
+            appointment: UpdatedAppointmentStatus
         };
 
     }
@@ -93,7 +93,7 @@ export class AppointmentService{
         });
         return{
             message: 'Appointment deleted successfully', 
-            Appointment: deletedAppointment
+            appointment: deletedAppointment
         }
     }
 

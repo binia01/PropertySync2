@@ -25,6 +25,8 @@ mixin _$UserModel {
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "role")
   String? get role => throw _privateConstructorUsedError;
+  @JsonKey(name: "properties")
+  List<dynamic>? get properties => throw _privateConstructorUsedError;
   @JsonKey(name: "bookedAppointments")
   List<dynamic>? get bookedAppointments => throw _privateConstructorUsedError;
   @JsonKey(name: "sellingAppointments")
@@ -47,6 +49,7 @@ abstract class $UserModelCopyWith<$Res> {
     @JsonKey(name: "email") String? email,
     @JsonKey(name: "name") String? name,
     @JsonKey(name: "role") String? role,
+    @JsonKey(name: "properties") List<dynamic>? properties,
     @JsonKey(name: "bookedAppointments") List<dynamic>? bookedAppointments,
     @JsonKey(name: "sellingAppointments") List<dynamic>? sellingAppointments,
   });
@@ -71,6 +74,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? email = freezed,
     Object? name = freezed,
     Object? role = freezed,
+    Object? properties = freezed,
     Object? bookedAppointments = freezed,
     Object? sellingAppointments = freezed,
   }) {
@@ -96,6 +100,11 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
                     ? _value.role
                     : role // ignore: cast_nullable_to_non_nullable
                         as String?,
+            properties:
+                freezed == properties
+                    ? _value.properties
+                    : properties // ignore: cast_nullable_to_non_nullable
+                        as List<dynamic>?,
             bookedAppointments:
                 freezed == bookedAppointments
                     ? _value.bookedAppointments
@@ -126,6 +135,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
     @JsonKey(name: "email") String? email,
     @JsonKey(name: "name") String? name,
     @JsonKey(name: "role") String? role,
+    @JsonKey(name: "properties") List<dynamic>? properties,
     @JsonKey(name: "bookedAppointments") List<dynamic>? bookedAppointments,
     @JsonKey(name: "sellingAppointments") List<dynamic>? sellingAppointments,
   });
@@ -149,6 +159,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? email = freezed,
     Object? name = freezed,
     Object? role = freezed,
+    Object? properties = freezed,
     Object? bookedAppointments = freezed,
     Object? sellingAppointments = freezed,
   }) {
@@ -174,6 +185,11 @@ class __$$UserModelImplCopyWithImpl<$Res>
                 ? _value.role
                 : role // ignore: cast_nullable_to_non_nullable
                     as String?,
+        properties:
+            freezed == properties
+                ? _value._properties
+                : properties // ignore: cast_nullable_to_non_nullable
+                    as List<dynamic>?,
         bookedAppointments:
             freezed == bookedAppointments
                 ? _value._bookedAppointments
@@ -197,11 +213,13 @@ class _$UserModelImpl implements _UserModel {
     @JsonKey(name: "email") this.email,
     @JsonKey(name: "name") this.name,
     @JsonKey(name: "role") this.role,
+    @JsonKey(name: "properties") final List<dynamic>? properties,
     @JsonKey(name: "bookedAppointments")
     final List<dynamic>? bookedAppointments,
     @JsonKey(name: "sellingAppointments")
     final List<dynamic>? sellingAppointments,
-  }) : _bookedAppointments = bookedAppointments,
+  }) : _properties = properties,
+       _bookedAppointments = bookedAppointments,
        _sellingAppointments = sellingAppointments;
 
   @override
@@ -216,6 +234,17 @@ class _$UserModelImpl implements _UserModel {
   @override
   @JsonKey(name: "role")
   final String? role;
+  final List<dynamic>? _properties;
+  @override
+  @JsonKey(name: "properties")
+  List<dynamic>? get properties {
+    final value = _properties;
+    if (value == null) return null;
+    if (_properties is EqualUnmodifiableListView) return _properties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   final List<dynamic>? _bookedAppointments;
   @override
   @JsonKey(name: "bookedAppointments")
@@ -242,7 +271,7 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, email: $email, name: $name, role: $role, bookedAppointments: $bookedAppointments, sellingAppointments: $sellingAppointments)';
+    return 'UserModel(id: $id, email: $email, name: $name, role: $role, properties: $properties, bookedAppointments: $bookedAppointments, sellingAppointments: $sellingAppointments)';
   }
 
   @override
@@ -254,6 +283,10 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.role, role) || other.role == role) &&
+            const DeepCollectionEquality().equals(
+              other._properties,
+              _properties,
+            ) &&
             const DeepCollectionEquality().equals(
               other._bookedAppointments,
               _bookedAppointments,
@@ -271,6 +304,7 @@ class _$UserModelImpl implements _UserModel {
     email,
     name,
     role,
+    const DeepCollectionEquality().hash(_properties),
     const DeepCollectionEquality().hash(_bookedAppointments),
     const DeepCollectionEquality().hash(_sellingAppointments),
   );
@@ -290,6 +324,7 @@ abstract class _UserModel implements UserModel {
     @JsonKey(name: "email") final String? email,
     @JsonKey(name: "name") final String? name,
     @JsonKey(name: "role") final String? role,
+    @JsonKey(name: "properties") final List<dynamic>? properties,
     @JsonKey(name: "bookedAppointments")
     final List<dynamic>? bookedAppointments,
     @JsonKey(name: "sellingAppointments")
@@ -308,6 +343,9 @@ abstract class _UserModel implements UserModel {
   @override
   @JsonKey(name: "role")
   String? get role;
+  @override
+  @JsonKey(name: "properties")
+  List<dynamic>? get properties;
   @override
   @JsonKey(name: "bookedAppointments")
   List<dynamic>? get bookedAppointments;

@@ -7,7 +7,13 @@ part of 'login_response.dart';
 // **************************************************************************
 
 _$LoginResponseImpl _$$LoginResponseImplFromJson(Map<String, dynamic> json) =>
-    _$LoginResponseImpl(accessToken: json['access_token'] as String);
+    _$LoginResponseImpl(
+      accessToken: json['access_token'] as String,
+      role: json['role'] as String,
+    );
 
 Map<String, dynamic> _$$LoginResponseImplToJson(_$LoginResponseImpl instance) =>
-    <String, dynamic>{'access_token': instance.accessToken};
+    <String, dynamic>{
+      'access_token': instance.accessToken,
+      'role': instance.role,
+    };

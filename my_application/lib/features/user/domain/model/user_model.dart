@@ -11,6 +11,7 @@ class UserModel with _$UserModel {
     @JsonKey(name: "email") String? email,
     @JsonKey(name: "name") String? name,
     @JsonKey(name: "role") String? role,
+    @JsonKey(name: "properties") List<dynamic>? properties,
     @JsonKey(name: "bookedAppointments") List<dynamic>? bookedAppointments,
     @JsonKey(name: "sellingAppointments") List<dynamic>? sellingAppointments,
   }) = _UserModel;
