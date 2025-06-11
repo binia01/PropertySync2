@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_application/core/data/remote/network_service.dart';
 import 'package:my_application/core/data/remote/token/token_service.dart';
+import 'package:my_application/core/providers/user.role.provider.dart';
 import 'package:my_application/core/route/route_name.dart';
 import 'package:my_application/features/appointment/presentation/ui/appointment_screen.dart';
 import 'package:my_application/features/auth/login/presentation/ui/login_screen.dart';
