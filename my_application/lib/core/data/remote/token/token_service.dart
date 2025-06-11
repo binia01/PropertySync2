@@ -11,21 +11,42 @@ final tokenServiceProvider = Provider.family<ITokenService, Dio>((ref, dio) {
 });
 
 class TokenService implements ITokenService {
-  // final Dio _dio;
   final IsecureStorage _secureStorage;
+
+  // Add in-memory cache for role
+  String? _cachedRole;
 
   TokenService(this._secureStorage);
 
   @override
   Future<void> clearToken() {
-    return Future.wait([_secureStorage.delete(accessTokenKey)]);
+    return _secureStorage.delete(accessTokenKey);
   }
 
   @override
-  Future<String?> getAccessToken() => _secureStorage.read('access_token');
+  Future<String?> getAccessToken() => _secureStorage.read(accessTokenKey);
 
   @override
   Future<void> saveToken(String accessToken) {
     return Future.wait([_secureStorage.write(accessTokenKey, accessToken)]);
+  }
+
+  @override
+  Future<void> clearRole() async {
+    _cachedRole = null;
+    await _secureStorage.delete(roleKey);
+  }
+
+  @override
+  Future<void> saveRole(String role) async {
+    _cachedRole = role;
+    await _secureStorage.write(roleKey, role);
+  }
+
+  @override
+  Future<String?> getRole() async {
+    if (_cachedRole != null) return _cachedRole;
+    _cachedRole = await _secureStorage.read(roleKey);
+    return _cachedRole;
   }
 }

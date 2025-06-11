@@ -1,2 +1,2 @@
 const String accessTokenKey = 'accessToken';
-const String refreshTokenKey = "refreshToekn";
+const String roleKey = 'role';
