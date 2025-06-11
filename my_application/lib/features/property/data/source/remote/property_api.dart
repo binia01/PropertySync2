@@ -29,7 +29,8 @@ class PropertyApi {
       final response = await _dio.post<Map<String, dynamic>>(
         "/property",
         data: data.toJson(),
-        options: Options(headers: {'Authorization': 'Bearer $token'}),
+        options: Options(
+            headers: {'Authorization': 'Bearer $token'}),
       );
       return PropertyWithMessageResponse.fromJson(response.data!);
     } on DioException catch (e) {

@@ -5,4 +5,8 @@ abstract interface class ITokenService {
   Future<String?> getRole();
   Future<void> saveRole(String role);
   Future<void> clearRole();
+
+  Future<void> saveUserId(String userId);
+  Future<String?> getUserId();
+  Future<void> clearUserId();
 }

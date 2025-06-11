@@ -51,7 +51,6 @@ class AppointmentController extends StateNotifier<AppointmentState> {
     try {
       final updated = await _appointmentService.editAppointment(request, id);
       state = AppointmentState.updated(updated);
-      // await getUserAppointments();
     } catch (e) {
       state = AppointmentState.error(e.toString());
     }
@@ -68,7 +67,6 @@ class AppointmentController extends StateNotifier<AppointmentState> {
         id,
       );
       state = AppointmentState.updated(updated);
-      // await getUserAppointments();
     } catch (e) {
       state = AppointmentState.error(e.toString());
     }
@@ -79,7 +77,6 @@ class AppointmentController extends StateNotifier<AppointmentState> {
     try {
       final deleted = await _appointmentService.deleteAppointment(id);
       state = AppointmentState.deleted(deleted);
-      // await getUserAppointments();
     } catch (e) {
       state = AppointmentState.error(e.toString());
     }

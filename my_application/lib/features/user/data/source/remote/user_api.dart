@@ -29,6 +29,7 @@ class UserApi {
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
       final user = UserResponse.fromJson(response.data!);
+      await _tokenService.saveRole(user.role ?? '');
       return user;
     } on DioException catch (e) {
       throw Exception('Failed to Get user: ${e.response?.data ?? e.message}');
@@ -39,7 +40,7 @@ class UserApi {
     try {
       final token = await _tokenService.getAccessToken();
       final response = await _dio.patch<Map<String, dynamic>>(
-        '/users/profile',
+        'users/profile',
         data: data.toJson(),
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
