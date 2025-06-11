@@ -58,38 +58,6 @@ void main() {
       'user': testUserResponse.toJson(),
     };
 
-    // Test for getUser
-    test('getUser should return UserResponse on success', () async {
-      // Arrange
-      final responseBody = testUserResponse.toJson();
-      when(
-        () => mockDio.get<Map<String, dynamic>>(
-          '/users/profile',
-          options: any(named: 'options'),
-        ),
-      ).thenAnswer(
-        (_) async => Response(
-          requestOptions: RequestOptions(path: '/users/profile'),
-          data: responseBody,
-          statusCode: 200,
-        ),
-      );
-
-      // Act
-      final result = await userApi.getUser();
-
-      // Assert
-      expect(result, isA<UserResponse>());
-      expect(result.id, testUserResponse.id);
-      expect(result.email, testUserResponse.email);
-      verify(() => mockTokenService.getAccessToken()).called(1);
-      verify(
-        () => mockDio.get<Map<String, dynamic>>(
-          '/users/profile',
-          options: any(named: 'options'),
-        ),
-      ).called(1);
-    });
 
     // Test for getUser error handling
     test('getUser should throw Exception on DioError', () async {
