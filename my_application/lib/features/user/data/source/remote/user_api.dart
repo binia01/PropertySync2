@@ -40,7 +40,7 @@ class UserApi {
     try {
       final token = await _tokenService.getAccessToken();
       final response = await _dio.patch<Map<String, dynamic>>(
-        'users/profile',
+        '/users/profile',
         data: data.toJson(),
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
