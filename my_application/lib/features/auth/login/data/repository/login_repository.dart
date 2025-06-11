@@ -27,6 +27,7 @@ final class LoginRepository implements IloginRepository {
     try {
       final response = await _loginApi.login(data);
       await _tokenService.saveToken(response.accessToken);
+      await _tokenService.saveRole(response.role);
       return response;
     } on DioException catch (_) {
       rethrow;

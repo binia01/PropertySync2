@@ -6,6 +6,7 @@ part 'login_model.freezed.dart';
 class LoginModel with _$LoginModel {
   factory LoginModel({
     required String accessToken,
+    required String role,
     required bool isLoginSuccess,
   }) = _LoginModel;
 }

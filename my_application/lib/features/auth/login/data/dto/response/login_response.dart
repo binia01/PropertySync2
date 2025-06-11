@@ -9,6 +9,7 @@ part 'login_response.g.dart';
 class LoginResponse with _$LoginResponse {
   const factory LoginResponse({
     @JsonKey(name: "access_token") required String accessToken,
+    @JsonKey(name: "role") required String role,
   }) = _LoginResponse;
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
