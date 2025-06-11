@@ -21,13 +21,6 @@ class PropertyCard extends ConsumerWidget {
     return FutureBuilder<String?>(
       future: tokenService.getRole(),
       builder: (context, snapshot) {
-        // if (snapshot.connectionState != ConnectionState.done) {
-        //   return const Center(child: CircularProgressIndicator());
-        // }
-        // if (snapshot.hasError) {
-        //   return Text('Error: ${snapshot.error}');
-        // }
-
         final role = snapshot.data?.toUpperCase();
         final isBuyer = role == "BUYER";
         final isSeller = role == "SELLER";
@@ -130,7 +123,7 @@ class PropertyCard extends ConsumerWidget {
                             MaterialPageRoute(
                               builder:
                                   (context) =>
-                                      EditPropertyPage(property: property),
+                                  EditPropertyPage(property: property),
                             ),
                           );
                         },
@@ -142,6 +135,9 @@ class PropertyCard extends ConsumerWidget {
                           ref
                               .read(propertyControllerProvider.notifier)
                               .deleteProperty(property.id!);
+                          ref
+                              .read(propertyControllerProvider.notifier)
+                              .getAllProperties();
                         },
                       ),
                     ],
@@ -154,16 +150,16 @@ class PropertyCard extends ConsumerWidget {
 
         return isBuyer
             ? InkWell(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder:
-                        (context) => PropertyDetailsScreen(property: property),
-                  ),
-                );
-              },
-              child: cardContent,
-            )
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder:
+                    (context) => PropertyDetailsScreen(property: property),
+              ),
+            );
+          },
+          child: cardContent,
+        )
             : cardContent;
       },
     );

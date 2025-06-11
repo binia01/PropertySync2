@@ -139,10 +139,10 @@ class PropertyForm extends ConsumerWidget {
               onPressed: () async {
                 bool success = false;
                 if (isEdit && propertyId != null) {
-                  controller.editProperty(propertyId!, form);
+                  await controller.editProperty(propertyId!, form);
                   success = true;
                 } else {
-                  controller.createProperty(form);
+                  await controller.createProperty(form);
                   success = true;
                 }
                 if (success) {
