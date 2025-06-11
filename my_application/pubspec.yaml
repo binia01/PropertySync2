@@ -54,7 +54,7 @@ dependencies:
   json_annotation: ^4.8.1
   equatable: ^2.0.5
   formz: ^0.6.0
-`
+
   # Dependency injection
   get_it: ^7.6.4
   injectable: ^2.3.0
