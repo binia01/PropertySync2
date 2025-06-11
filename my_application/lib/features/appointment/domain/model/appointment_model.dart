@@ -10,8 +10,8 @@ class AppointmentModel with _$AppointmentModel {
     @JsonKey(name: "id") int? id,
     @JsonKey(name: "createdAt") DateTime? createdAt,
     @JsonKey(name: "updatedAt") DateTime? updatedAt,
-    @JsonKey(name: "startTime") DateTime? startTime,
-    @JsonKey(name: "Date") DateTime? date, // fixed key
+    @JsonKey(name: "startTime") String? startTime,
+    @JsonKey(name: "Date") String? date, // fixed key
     @JsonKey(name: "propertyId") int? propertyId,
     @JsonKey(name: "buyerId") int? buyerId,
     @JsonKey(name: "sellerId") int? sellerId,
