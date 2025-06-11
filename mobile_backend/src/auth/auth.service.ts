@@ -50,7 +50,9 @@ export class AuthService {
             if (!pwMatches){
                 throw new ForbiddenException("Credentails incorrect")
             }
-            return this.signToken(user.id, user.email);
+            const access_token = this.signToken(user.id, user.email);
+
+            return {access_token: (await access_token).access_token, role:  user.role};
 
             
         } catch (error) {
