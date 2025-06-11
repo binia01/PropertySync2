@@ -42,12 +42,39 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
   Widget build(BuildContext context) {
     _listener();
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      padding: const EdgeInsets.all(32.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha((0.08 * 255).toInt()),
+            blurRadius: 16,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
       child: Form(
         key: _formKey,
         child: ListView(
           children: [
+            Text(
+              "PROPERTY SYNC",
+              style: Theme.of(
+                context,
+              ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              "CREATE AN ACCOUNT",
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(color: Colors.grey[700]),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 24),
             TextFormField(
               controller: _nameController,
               keyboardType: TextInputType.name,
@@ -120,7 +147,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
             SizedBox(height: 16),
             SignUpButton(onPressed: _onSubmit),
             const SizedBox(height: 16),
-            AlreadyHaveAccount(onPressed: _navigateToLogin),
+            AlreadyHaveAccount(onPressed: () => context.go('/login')),
           ],
         ),
       ),
@@ -161,7 +188,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
                     onPressed: () {
                       context.pop();
                       _clearForm();
-                      _navigateToLogin();
+                      _navigate();
                     },
                     child: Text('OK'),
                   ),
@@ -183,8 +210,8 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
     });
   }
 
-  void _navigateToLogin() {
-    context.go('/login');
+  void _navigate() {
+    context.go('/property');
   }
 
   void _onSubmit() {
@@ -200,7 +227,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
     }
 
     final formData = {
-      'name': _nameController.text,
+      'firstname': _nameController.text,
       'email': _emailController.text,
       'password': _passwordController.text,
       'role': _selectedRole!,
