@@ -26,6 +26,7 @@ class LoginController extends AutoDisposeNotifier<LoginState> {
         password: state.loginform['password'],
       );
       final result = await ref.read(loginServiceProvider).login(formData);
+
       state = state.copyWith(
         isLoading: false,
         isLoginSuccess: result.isLoginSuccess,

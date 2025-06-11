@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginModel {
   String get accessToken => throw _privateConstructorUsedError;
+  String get role => throw _privateConstructorUsedError;
   bool get isLoginSuccess => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginModel
@@ -34,7 +35,7 @@ abstract class $LoginModelCopyWith<$Res> {
     $Res Function(LoginModel) then,
   ) = _$LoginModelCopyWithImpl<$Res, LoginModel>;
   @useResult
-  $Res call({String accessToken, bool isLoginSuccess});
+  $Res call({String accessToken, String role, bool isLoginSuccess});
 }
 
 /// @nodoc
@@ -51,13 +52,22 @@ class _$LoginModelCopyWithImpl<$Res, $Val extends LoginModel>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accessToken = null, Object? isLoginSuccess = null}) {
+  $Res call({
+    Object? accessToken = null,
+    Object? role = null,
+    Object? isLoginSuccess = null,
+  }) {
     return _then(
       _value.copyWith(
             accessToken:
                 null == accessToken
                     ? _value.accessToken
                     : accessToken // ignore: cast_nullable_to_non_nullable
+                        as String,
+            role:
+                null == role
+                    ? _value.role
+                    : role // ignore: cast_nullable_to_non_nullable
                         as String,
             isLoginSuccess:
                 null == isLoginSuccess
@@ -79,7 +89,7 @@ abstract class _$$LoginModelImplCopyWith<$Res>
   ) = __$$LoginModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String accessToken, bool isLoginSuccess});
+  $Res call({String accessToken, String role, bool isLoginSuccess});
 }
 
 /// @nodoc
@@ -95,13 +105,22 @@ class __$$LoginModelImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accessToken = null, Object? isLoginSuccess = null}) {
+  $Res call({
+    Object? accessToken = null,
+    Object? role = null,
+    Object? isLoginSuccess = null,
+  }) {
     return _then(
       _$LoginModelImpl(
         accessToken:
             null == accessToken
                 ? _value.accessToken
                 : accessToken // ignore: cast_nullable_to_non_nullable
+                    as String,
+        role:
+            null == role
+                ? _value.role
+                : role // ignore: cast_nullable_to_non_nullable
                     as String,
         isLoginSuccess:
             null == isLoginSuccess
@@ -116,16 +135,22 @@ class __$$LoginModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoginModelImpl implements _LoginModel {
-  _$LoginModelImpl({required this.accessToken, required this.isLoginSuccess});
+  _$LoginModelImpl({
+    required this.accessToken,
+    required this.role,
+    required this.isLoginSuccess,
+  });
 
   @override
   final String accessToken;
+  @override
+  final String role;
   @override
   final bool isLoginSuccess;
 
   @override
   String toString() {
-    return 'LoginModel(accessToken: $accessToken, isLoginSuccess: $isLoginSuccess)';
+    return 'LoginModel(accessToken: $accessToken, role: $role, isLoginSuccess: $isLoginSuccess)';
   }
 
   @override
@@ -135,12 +160,14 @@ class _$LoginModelImpl implements _LoginModel {
             other is _$LoginModelImpl &&
             (identical(other.accessToken, accessToken) ||
                 other.accessToken == accessToken) &&
+            (identical(other.role, role) || other.role == role) &&
             (identical(other.isLoginSuccess, isLoginSuccess) ||
                 other.isLoginSuccess == isLoginSuccess));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, accessToken, isLoginSuccess);
+  int get hashCode =>
+      Object.hash(runtimeType, accessToken, role, isLoginSuccess);
 
   /// Create a copy of LoginModel
   /// with the given fields replaced by the non-null parameter values.
@@ -154,11 +181,14 @@ class _$LoginModelImpl implements _LoginModel {
 abstract class _LoginModel implements LoginModel {
   factory _LoginModel({
     required final String accessToken,
+    required final String role,
     required final bool isLoginSuccess,
   }) = _$LoginModelImpl;
 
   @override
   String get accessToken;
+  @override
+  String get role;
   @override
   bool get isLoginSuccess;
 

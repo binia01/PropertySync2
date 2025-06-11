@@ -18,11 +18,8 @@ _$AppointmentResponseImpl _$$AppointmentResponseImplFromJson(
       json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
-  startTime:
-      json['startTime'] == null
-          ? null
-          : DateTime.parse(json['startTime'] as String),
-  date: json['Date'] == null ? null : DateTime.parse(json['Date'] as String),
+  startTime: json['startTime'] as String?,
+  date: json['Date'] as String?,
   propertyId: (json['propertyId'] as num?)?.toInt(),
   buyerId: (json['buyerId'] as num?)?.toInt(),
   sellerId: (json['sellerId'] as num?)?.toInt(),
@@ -35,8 +32,8 @@ Map<String, dynamic> _$$AppointmentResponseImplToJson(
   'id': instance.id,
   'createdAt': instance.createdAt?.toIso8601String(),
   'updatedAt': instance.updatedAt?.toIso8601String(),
-  'startTime': instance.startTime?.toIso8601String(),
-  'Date': instance.date?.toIso8601String(),
+  'startTime': instance.startTime,
+  'Date': instance.date,
   'propertyId': instance.propertyId,
   'buyerId': instance.buyerId,
   'sellerId': instance.sellerId,

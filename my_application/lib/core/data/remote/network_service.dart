@@ -5,7 +5,7 @@ import 'package:my_application/core/data/remote/network_service_interceptor.dart
 
 final networkServiceProvider = Provider<Dio>((ref) {
   final options = BaseOptions(
-    baseUrl: 'http://192.168.1.8:3000',
+    baseUrl: 'http://192.168.138.1:3000',
     headers: {'Content-Type': 'application/json'},
     connectTimeout: const Duration(seconds: 60),
     receiveTimeout: const Duration(seconds: 60),
@@ -20,6 +20,7 @@ final networkServiceProvider = Provider<Dio>((ref) {
       },
     ),
     provider,
+    LogInterceptor(request: true, responseBody: true, requestBody: true),
   ]);
   return dio;
 });

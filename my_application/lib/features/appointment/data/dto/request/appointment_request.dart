@@ -9,8 +9,9 @@ part 'appointment_request.g.dart';
 class AppointmentRequest with _$AppointmentRequest {
   const factory AppointmentRequest({
     @JsonKey(name: "propertyId") int? propertyId,
-    @JsonKey(name: "Date") DateTime? date,
-    @JsonKey(name: "startTime") DateTime? startTime,
+    @JsonKey(name: "Date") String? date,
+    @JsonKey(name: "startTime") String? startTime,
+    @JsonKey(name: 'status') String? status,
   }) = _AppointmentRequest;
 
   factory AppointmentRequest.fromJson(Map<String, dynamic> json) =>

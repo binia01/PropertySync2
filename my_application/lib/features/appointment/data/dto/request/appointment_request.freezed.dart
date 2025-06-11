@@ -24,9 +24,11 @@ mixin _$AppointmentRequest {
   @JsonKey(name: "propertyId")
   int? get propertyId => throw _privateConstructorUsedError;
   @JsonKey(name: "Date")
-  DateTime? get date => throw _privateConstructorUsedError;
+  String? get date => throw _privateConstructorUsedError;
   @JsonKey(name: "startTime")
-  DateTime? get startTime => throw _privateConstructorUsedError;
+  String? get startTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'status')
+  String? get status => throw _privateConstructorUsedError;
 
   /// Serializes this AppointmentRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,8 +49,9 @@ abstract class $AppointmentRequestCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: "propertyId") int? propertyId,
-    @JsonKey(name: "Date") DateTime? date,
-    @JsonKey(name: "startTime") DateTime? startTime,
+    @JsonKey(name: "Date") String? date,
+    @JsonKey(name: "startTime") String? startTime,
+    @JsonKey(name: 'status') String? status,
   });
 }
 
@@ -70,6 +73,7 @@ class _$AppointmentRequestCopyWithImpl<$Res, $Val extends AppointmentRequest>
     Object? propertyId = freezed,
     Object? date = freezed,
     Object? startTime = freezed,
+    Object? status = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -82,12 +86,17 @@ class _$AppointmentRequestCopyWithImpl<$Res, $Val extends AppointmentRequest>
                 freezed == date
                     ? _value.date
                     : date // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
+                        as String?,
             startTime:
                 freezed == startTime
                     ? _value.startTime
                     : startTime // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
+                        as String?,
+            status:
+                freezed == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as String?,
           )
           as $Val,
     );
@@ -105,8 +114,9 @@ abstract class _$$AppointmentRequestImplCopyWith<$Res>
   @useResult
   $Res call({
     @JsonKey(name: "propertyId") int? propertyId,
-    @JsonKey(name: "Date") DateTime? date,
-    @JsonKey(name: "startTime") DateTime? startTime,
+    @JsonKey(name: "Date") String? date,
+    @JsonKey(name: "startTime") String? startTime,
+    @JsonKey(name: 'status') String? status,
   });
 }
 
@@ -127,6 +137,7 @@ class __$$AppointmentRequestImplCopyWithImpl<$Res>
     Object? propertyId = freezed,
     Object? date = freezed,
     Object? startTime = freezed,
+    Object? status = freezed,
   }) {
     return _then(
       _$AppointmentRequestImpl(
@@ -139,12 +150,17 @@ class __$$AppointmentRequestImplCopyWithImpl<$Res>
             freezed == date
                 ? _value.date
                 : date // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
+                    as String?,
         startTime:
             freezed == startTime
                 ? _value.startTime
                 : startTime // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
+                    as String?,
+        status:
+            freezed == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as String?,
       ),
     );
   }
@@ -157,6 +173,7 @@ class _$AppointmentRequestImpl implements _AppointmentRequest {
     @JsonKey(name: "propertyId") this.propertyId,
     @JsonKey(name: "Date") this.date,
     @JsonKey(name: "startTime") this.startTime,
+    @JsonKey(name: 'status') this.status,
   });
 
   factory _$AppointmentRequestImpl.fromJson(Map<String, dynamic> json) =>
@@ -167,14 +184,17 @@ class _$AppointmentRequestImpl implements _AppointmentRequest {
   final int? propertyId;
   @override
   @JsonKey(name: "Date")
-  final DateTime? date;
+  final String? date;
   @override
   @JsonKey(name: "startTime")
-  final DateTime? startTime;
+  final String? startTime;
+  @override
+  @JsonKey(name: 'status')
+  final String? status;
 
   @override
   String toString() {
-    return 'AppointmentRequest(propertyId: $propertyId, date: $date, startTime: $startTime)';
+    return 'AppointmentRequest(propertyId: $propertyId, date: $date, startTime: $startTime, status: $status)';
   }
 
   @override
@@ -186,12 +206,14 @@ class _$AppointmentRequestImpl implements _AppointmentRequest {
                 other.propertyId == propertyId) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.startTime, startTime) ||
-                other.startTime == startTime));
+                other.startTime == startTime) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, propertyId, date, startTime);
+  int get hashCode =>
+      Object.hash(runtimeType, propertyId, date, startTime, status);
 
   /// Create a copy of AppointmentRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -213,8 +235,9 @@ class _$AppointmentRequestImpl implements _AppointmentRequest {
 abstract class _AppointmentRequest implements AppointmentRequest {
   const factory _AppointmentRequest({
     @JsonKey(name: "propertyId") final int? propertyId,
-    @JsonKey(name: "Date") final DateTime? date,
-    @JsonKey(name: "startTime") final DateTime? startTime,
+    @JsonKey(name: "Date") final String? date,
+    @JsonKey(name: "startTime") final String? startTime,
+    @JsonKey(name: 'status') final String? status,
   }) = _$AppointmentRequestImpl;
 
   factory _AppointmentRequest.fromJson(Map<String, dynamic> json) =
@@ -225,10 +248,13 @@ abstract class _AppointmentRequest implements AppointmentRequest {
   int? get propertyId;
   @override
   @JsonKey(name: "Date")
-  DateTime? get date;
+  String? get date;
   @override
   @JsonKey(name: "startTime")
-  DateTime? get startTime;
+  String? get startTime;
+  @override
+  @JsonKey(name: 'status')
+  String? get status;
 
   /// Create a copy of AppointmentRequest
   /// with the given fields replaced by the non-null parameter values.

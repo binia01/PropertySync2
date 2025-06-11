@@ -28,9 +28,9 @@ mixin _$AppointmentResponse {
   @JsonKey(name: "updatedAt")
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "startTime")
-  DateTime? get startTime => throw _privateConstructorUsedError;
+  String? get startTime => throw _privateConstructorUsedError;
   @JsonKey(name: "Date")
-  DateTime? get date => throw _privateConstructorUsedError;
+  String? get date => throw _privateConstructorUsedError;
   @JsonKey(name: "propertyId")
   int? get propertyId => throw _privateConstructorUsedError;
   @JsonKey(name: "buyerId")
@@ -61,8 +61,8 @@ abstract class $AppointmentResponseCopyWith<$Res> {
     @JsonKey(name: "id") int? id,
     @JsonKey(name: "createdAt") DateTime? createdAt,
     @JsonKey(name: "updatedAt") DateTime? updatedAt,
-    @JsonKey(name: "startTime") DateTime? startTime,
-    @JsonKey(name: "Date") DateTime? date,
+    @JsonKey(name: "startTime") String? startTime,
+    @JsonKey(name: "Date") String? date,
     @JsonKey(name: "propertyId") int? propertyId,
     @JsonKey(name: "buyerId") int? buyerId,
     @JsonKey(name: "sellerId") int? sellerId,
@@ -116,12 +116,12 @@ class _$AppointmentResponseCopyWithImpl<$Res, $Val extends AppointmentResponse>
                 freezed == startTime
                     ? _value.startTime
                     : startTime // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
+                        as String?,
             date:
                 freezed == date
                     ? _value.date
                     : date // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
+                        as String?,
             propertyId:
                 freezed == propertyId
                     ? _value.propertyId
@@ -161,8 +161,8 @@ abstract class _$$AppointmentResponseImplCopyWith<$Res>
     @JsonKey(name: "id") int? id,
     @JsonKey(name: "createdAt") DateTime? createdAt,
     @JsonKey(name: "updatedAt") DateTime? updatedAt,
-    @JsonKey(name: "startTime") DateTime? startTime,
-    @JsonKey(name: "Date") DateTime? date,
+    @JsonKey(name: "startTime") String? startTime,
+    @JsonKey(name: "Date") String? date,
     @JsonKey(name: "propertyId") int? propertyId,
     @JsonKey(name: "buyerId") int? buyerId,
     @JsonKey(name: "sellerId") int? sellerId,
@@ -215,12 +215,12 @@ class __$$AppointmentResponseImplCopyWithImpl<$Res>
             freezed == startTime
                 ? _value.startTime
                 : startTime // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
+                    as String?,
         date:
             freezed == date
                 ? _value.date
                 : date // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
+                    as String?,
         propertyId:
             freezed == propertyId
                 ? _value.propertyId
@@ -275,10 +275,10 @@ class _$AppointmentResponseImpl implements _AppointmentResponse {
   final DateTime? updatedAt;
   @override
   @JsonKey(name: "startTime")
-  final DateTime? startTime;
+  final String? startTime;
   @override
   @JsonKey(name: "Date")
-  final DateTime? date;
+  final String? date;
   @override
   @JsonKey(name: "propertyId")
   final int? propertyId;
@@ -355,8 +355,8 @@ abstract class _AppointmentResponse implements AppointmentResponse {
     @JsonKey(name: "id") final int? id,
     @JsonKey(name: "createdAt") final DateTime? createdAt,
     @JsonKey(name: "updatedAt") final DateTime? updatedAt,
-    @JsonKey(name: "startTime") final DateTime? startTime,
-    @JsonKey(name: "Date") final DateTime? date,
+    @JsonKey(name: "startTime") final String? startTime,
+    @JsonKey(name: "Date") final String? date,
     @JsonKey(name: "propertyId") final int? propertyId,
     @JsonKey(name: "buyerId") final int? buyerId,
     @JsonKey(name: "sellerId") final int? sellerId,
@@ -377,10 +377,10 @@ abstract class _AppointmentResponse implements AppointmentResponse {
   DateTime? get updatedAt;
   @override
   @JsonKey(name: "startTime")
-  DateTime? get startTime;
+  String? get startTime;
   @override
   @JsonKey(name: "Date")
-  DateTime? get date;
+  String? get date;
   @override
   @JsonKey(name: "propertyId")
   int? get propertyId;
